@@ -1,0 +1,43 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --view-height: 100vh;
+  --header-height:10rem;
+  --footer-height:4rem;
+  /* --primary-font: 'Sansita Swashed', sans-serif;
+  --secondary-font: 'Space Grotesk', sans-serif; */
+}
+
+.header{
+  height: var(--header-height);
+}
+
+@media all and (min-width : 640px){
+    .header{
+      height: 5rem;
+    }
+}
+
+.footer {
+  height: var(--footer-height);
+  border: 2px solid black;
+}
+
+/* Content */
+
+.content {
+  min-height: calc(var(--view-height) - (var(--header-height) + var(--footer-height)));
+  padding: 5rem 0rem;
+}
+
+.movie-slide{
+  scroll-snap-type: x mandatory;
+}
+
+.movie-card{
+  scroll-snap-align: start;
+}

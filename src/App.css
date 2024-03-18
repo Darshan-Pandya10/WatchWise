@@ -21,6 +21,14 @@
   font-weight: 700;
 }
 
+.navlink:hover{
+  color: gray;
+}
+
+.active:hover{
+  color: #6366f1;
+}
+
 @media all and (min-width : 640px){
     .header{
       height: 5rem;
@@ -29,14 +37,59 @@
 
 .footer {
   height: var(--footer-height);
-  border: 2px solid black;
+}
+
+/* tringle-asymmetrical and tringle  */
+
+.custom-shape-divider-tringle {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  margin-bottom: -3rem;
+}
+
+.custom-shape-divider-tringle svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 145px;
+}
+
+.custom-shape-divider-tringle .shape-fill {
+  fill: #6366F1;
+}
+
+
+.custom-shape-divider-tringle-asymmetrical {
+  position: relative;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  transform: rotate(180deg);
+  margin-top: 5rem;
+}
+
+.custom-shape-divider-tringle-asymmetrical svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 100px;
+}
+
+.custom-shape-divider-tringle-asymmetrical .shape-fill {
+  fill: #6366F1;
 }
 
 /* Content */
 
 .content {
   min-height: calc(var(--view-height) - (var(--header-height) + var(--footer-height)));
-  padding: 5rem 0rem;
+  padding: 0rem 0rem;
 }
 
 .movie-slide{
@@ -45,15 +98,45 @@
 
 .movie-card{
   scroll-snap-align: start;
-  /* background: #232526; */
-    /* fallback for old browsers */
-    /* background: -webkit-linear-gradient(to right, #7383df, #262626); */
-    /* Chrome 10-25, Safari 5.1-6 */
-    /* background: linear-gradient(to right, #7383df, #262626); */
-    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    /* color: whitesmoke; */
+  filter: grayscale(0);
+}
+
+.movie-card:hover .movie-poster {
+  filter: grayscale(1);
 }
 
 .movielist-content{
+  background-color: #9b9db18a;
+}
 
+
+
+body {
+  scrollbar-width: thin;
+  /* "auto" or "thin" */
+  scrollbar-color: #6366f1 #ffffff;
+  /* scroll thumb and track */
+}
+
+/* Works on Firefox */
+* {
+  scrollbar-width: thin;
+    /* "auto" or "thin" */
+    scrollbar-color: #6366f1 #ffffff;
+    /* scroll thumb and track */
+}
+
+/* Works on Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 12px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #ffffff;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #6366f1;
+  border-radius: 20px;
+  border: 3px solid rgb(103, 103, 103);
 }

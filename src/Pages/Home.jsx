@@ -36,17 +36,17 @@ function Home() {
 
   return (
     <>
-    <div className='intro flex flex-col justify-around items-center md:flex-row md:justify-around md:item-center'>
+    <div className='intro mt-16 md:mt-8 flex flex-col justify-around items-center md:flex-row md:justify-around md:item-center'>
       <div className='p-8'>
       <h1 className='text-3xl font-bold tracking-widest pb-4'>WatchWise</h1>
-      <p className=''>Introducing WatchWise, your ultimate destination for unraveling the enchanting world of cinema!
+      <p className='tracking-wider'>Introducing WatchWise, your ultimate destination for unraveling the enchanting world of cinema!
       Immerse yourself in a cinematic journey like never before with our comprehensive movie database site. 
       WatchWise is designed to be your go-to hub for all things movies, offering an extensive collection of film details at your fingertips. </p>
       </div>
       <img src="src/assets/hero-svg.svg" className='sm:mr-10' alt="hero image" width={350}height={350}/>
     </div>
     {/* border-2 border-solid border-black */}
-    <section className='p-12 mt-8'>
+    <section className='movielist-content p-12 mt-8'>
       {
         data?.map((resObj) => {
         const id = uuidv4()

@@ -16,6 +16,10 @@
   height: var(--header-height);
 }
 
+.active{
+  color: #6366f1;
+}
+
 @media all and (min-width : 640px){
     .header{
       height: 5rem;

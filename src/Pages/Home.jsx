@@ -45,7 +45,8 @@ function Home() {
       </div>
       <img src="src/assets/hero-svg.svg" className='sm:mr-10' alt="hero image" width={350}height={350}/>
     </div>
-    <section className='p-12 mt-8 border-2 border-solid border-black'>
+    {/* border-2 border-solid border-black */}
+    <section className='p-12 mt-8'>
       {
         data?.map((resObj) => {
         const id = uuidv4()

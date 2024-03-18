@@ -47,7 +47,7 @@ function App() {
  
 
   return (
-    <div className='app p-8'>
+    <div className='app'>
       <QueryClientProvider client={queryClient}>
       <RouterProvider router={router}/>
       </QueryClientProvider>

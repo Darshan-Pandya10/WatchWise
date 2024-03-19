@@ -11,10 +11,10 @@
 @layer components {
 
     .label{
-        @apply my-1;
+        @apply my-1 md:text-[1.1rem];
     }
 
     .label-span {
-        @apply font-semibold text-[1.1rem] tracking-wide;
+        @apply font-semibold text-[1.1rem] md:text-[1.15rem] tracking-wide;
     }
 }

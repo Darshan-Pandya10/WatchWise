@@ -1,9 +1,10 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
+import '../App.css'
 
 function Header() {
-  return (
-    <div className='header z-50 backdrop-blur-lg fixed w-full shadow-lg flex flex-col justify-around items-start p-4 sm:flex-row sm:justify-between sm:items-center'>
+  return (  
+    <div className='header fixed z-50 backdrop-blur-lg w-screen shadow-lg flex flex-col justify-around items-start p-4 sm:flex-row sm:justify-between sm:items-center'>
       <h1 className='font-semibold text-xl md:text-2xl'>
         <span className='text-[#6366f1] font-bold'>W</span>
         atch

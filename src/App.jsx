@@ -2,7 +2,7 @@ import './App.css'
 import AppLayout from './Pages/AppLayout'
 import Home from './Pages/Home'
 import BrowseMovies from './Pages/BrowseMovies'
-import Movies from './Pages/Movies'
+import Movie from './Pages/Movie'
 import About from './Pages/About'
 import Error from './Pages/Error'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
@@ -31,8 +31,8 @@ const router = createBrowserRouter([
         element: <BrowseMovies/>
       },
       {
-        path:'movies',
-        element: <Movies/>
+        path:'movie/:id',
+        element: <Movie/>
       },
       {
         path:'about',

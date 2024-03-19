@@ -36,7 +36,7 @@ function Home() {
 
   return (
     <>
-    <div className='intro pt-20 md:pt-28 flex flex-col justify-around items-center md:flex-row md:justify-around md:item-center'>
+    <div className='intro relative pb-16 pt-40 md:pt-28 flex flex-col justify-around items-center md:flex-row md:justify-around md:item-center'>
       <div className='p-8'>
       <h1 className='text-3xl font-bold tracking-widest pb-4'>WatchWise</h1>
       <p className='tracking-wider'>Introducing WatchWise, your ultimate destination for unraveling the enchanting world of cinema!
@@ -47,10 +47,10 @@ function Home() {
     </div>
     {/* border-2 border-solid border-black */}
     
-    <section className='movielist-content p-0 mt-16'>
-      <div class="custom-shape-divider-tringle">
+    <section className='movielist-content p-0'>
+      <div className="custom-shape-divider-tringle">
     <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-        <path d="M649.97 0L550.03 0 599.91 54.12 649.97 0z" class="shape-fill"></path>
+        <path d="M649.97 0L550.03 0 599.91 54.12 649.97 0z" className="shape-fill"></path>
     </svg>
 </div>
       {
@@ -59,9 +59,9 @@ function Home() {
         return <MovieLists resObj={resObj} key={id}/>          
         })
       }
-      <div class="custom-shape-divider-tringle-asymmetrical">
+      <div className="custom-shape-divider-tringle-asymmetrical">
      <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-        <path d="M1200 0L0 0 892.25 114.72 1200 0z" class="shape-fill"></path>
+        <path d="M1200 0L0 0 892.25 114.72 1200 0z" className="shape-fill"></path>
     </svg>
 </div>
     </section>

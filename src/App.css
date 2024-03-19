@@ -7,6 +7,7 @@
 :root {
   --view-height: 100vh;
   --header-height:10rem;
+  --bigscreen-header-height:5rem;
   --footer-height:4rem;
   /* --primary-font: 'Sansita Swashed', sans-serif;
   --secondary-font: 'Space Grotesk', sans-serif; */
@@ -29,10 +30,46 @@
   color: #6366f1;
 }
 
-@media all and (min-width : 640px){
+.details-page .title{
+  box-shadow: -6px 6px #6366F1;
+}
+
+/* .poster-image{
+      box-shadow: -6px 6px #8b8dfa;
+} */
+
+/* Loader */
+
+.loader {
+  margin: 6rem auto;
+  border: 0.6rem solid rgb(218, 218, 218);
+  border-radius: 50%;
+  border-top: 0.6rem solid #6366F1;
+  width: 5rem;
+  height: 5rem;
+  animation: spinner 2s linear infinite;
+}
+
+@keyframes spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@media screen and (min-width : 640px){
     .header{
-      height: 5rem;
+      height: var(--bigscreen-header-height);
     }
+
+    .content{
+      min-height: calc(var(--view-height) - (var(--bigscreen-header-height) + var(--footer-height)));
+    }
+
+
 }
 
 .footer {
@@ -89,7 +126,6 @@
 
 .content {
   min-height: calc(var(--view-height) - (var(--header-height) + var(--footer-height)));
-  padding: 0rem 0rem;
 }
 
 .movie-slide{

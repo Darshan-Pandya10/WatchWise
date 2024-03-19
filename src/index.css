@@ -1,3 +1,20 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+    .details-page {
+        @apply min-h-screen pt-52 sm:pt-32 sm:px-8;
+    }
+}
+
+@layer components {
+
+    .label{
+        @apply my-1;
+    }
+
+    .label-span {
+        @apply font-semibold text-[1.1rem] tracking-wide;
+    }
+}

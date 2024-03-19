@@ -5,7 +5,7 @@ import Footer from '../Components/Footer'
 
 function AppLayout() {
   return (
-    <div className='page bg-slate-100'>
+    <div className='page bg-slate-100 relative'>
       <Header/>
       <div className="content">
         <Outlet/>

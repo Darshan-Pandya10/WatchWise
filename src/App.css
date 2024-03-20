@@ -8,7 +8,7 @@
   --view-height: 100vh;
   --header-height:10rem;
   --bigscreen-header-height:5rem;
-  --footer-height:4rem;
+  --footer-height:6rem;
   /* --primary-font: 'Sansita Swashed', sans-serif;
   --secondary-font: 'Space Grotesk', sans-serif; */
 }
@@ -82,7 +82,7 @@ body{
 
 /* tringle-asymmetrical and tringle  */
 
-.custom-shape-divider-tringle {
+.custom-shape-divider-wave {
   position: relative;
   top: 0;
   left: 0;
@@ -92,38 +92,36 @@ body{
   margin-bottom: -3rem;
 }
 
-.custom-shape-divider-tringle svg {
+.custom-shape-divider-wave svg {
   position: relative;
   display: block;
   width: calc(100% + 1.3px);
   height: 145px;
 }
 
-.custom-shape-divider-tringle .shape-fill {
-  fill: #6366F1;
+.custom-shape-divider-wave .shape-fill {
+  fill: #ffffff;
 }
 
 
-.custom-shape-divider-tringle-asymmetrical {
+.custom-shape-divider-wave-bottom {
   position: relative;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  overflow: hidden;
-  line-height: 0;
-  transform: rotate(180deg);
-  margin-top: 5rem;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
 }
 
-.custom-shape-divider-tringle-asymmetrical svg {
+.custom-shape-divider-wave-bottom svg {
   position: relative;
-  display: block;
-  width: calc(100% + 1.3px);
-  height: 100px;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 125px;
 }
 
-.custom-shape-divider-tringle-asymmetrical .shape-fill {
-  fill: #6366F1;
+.custom-shape-divider-wave-bottom .shape-fill {
+  fill: #9b9db18a;
 }
 
 /* Content */

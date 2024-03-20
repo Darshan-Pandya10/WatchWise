@@ -92,8 +92,8 @@ if(isError){
   <div className="details w-full md:w-[30rem] mt-8 lg:mt-0 md:ml-4 p-0">
     {/* <h2 className="text-xl font-semibold mb-4">{title}</h2> */}
     <p className='label overview'>{overview}</p>
-    <p className='label'><span className='label-span'>Original Language : </span> {language.toUpperCase()}</p>
-    <div className='label genres flex flex-wrap items-center justify-start'><span className='label-span '>Genres :</span>{genres?.map((genre, index) => <span key={index} className='inline-block mt-1 bg-gray-200 text-gray-700 rounded-full px-3 py-1 text-sm font-semibold mr-1'>{genre.name}</span>)}</div>
+    <p className='label capitalize'><span className='label-span'>Original Language : </span> {language}</p>
+    <div className='label genres flex flex-wrap items-center justify-start'><span className='label-span '>Genres :</span>{genres?.map((genre, index) => <span key={index} className='inline-block cursor-pointer mt-1 bg-gray-200 hover:bg-gray-300 text-gray-700 rounded-full px-3 py-1 text-sm font-semibold mr-1'>{genre.name}</span>)}</div>
     {belongs_to_collection ? <p className='label'><span className='label-span'>Collection :</span>{belongs_to_collection.name}</p> : null}
     <p className='label'><span className='label-span'>RunTime :</span> {NumToTime(runtime)} hours</p>
     <p className='label'><span className='label-span'>Release Date :</span> {release_date}</p>
@@ -101,7 +101,7 @@ if(isError){
     <p className='label'><span className='label-span'>Budget :</span> {formattedBudget}</p>
     <p className='label'><span className='label-span'>Revenue :</span> {formattedRevenue}</p>
     <div className='production-companies mb-4 ml-1'><span className='label-span'>Production Company(ies) :</span>{production_companies?.map((company, index) => {
-      return <span key={index} className='inline-block mt-1 bg-gray-200 text-gray-700 rounded-full px-3 py-1 text-sm font-semibold mr-1'>{company.name}</span>
+      return <span key={index} className='inline-block mt-1 cursor-pointer bg-gray-200 text-gray-700 hover:bg-gray-300 rounded-full px-3 py-1 text-sm font-semibold mr-1'>{company.name}</span>
     })}</div>
     <a target='_blank' rel="noopener noreferrer" className='px-4 py-2 my-2 font-semibold tracking-wide inline-block bg-[#6366F1] hover:bg-[#9193f7] text-white rounded-md' href={homepage}>Movie Homepage</a>
   </div>

@@ -15,6 +15,6 @@
     }
 
     .label-span {
-        @apply font-semibold text-[1.1rem] md:text-[1.1rem] my-0 mr-1 inline;
+        @apply font-semibold text-[1rem] md:text-[1rem] my-0 mr-1 inline;
     }
 }

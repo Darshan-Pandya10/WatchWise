@@ -37,6 +37,10 @@ body{
   box-shadow: -6px 6px #6366F1;
 }
 
+.label{
+  margin: -0.4rem 0rem ;
+}
+
 /* .poster-image{
       box-shadow: -6px 6px #8b8dfa;
 } */

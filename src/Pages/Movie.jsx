@@ -82,17 +82,17 @@ if(isError){
 
       <h1 className='title text-2xl tracking-wider font-semibold bg-black text-white mx-auto px-8 py-4 -mt-8 w-fit sm:px-8 sm:py-4 md:w-fit text-center mb-8'>{title}</h1>
 
-      <div className="container md:w-[90vw] max-w-screen-xl mx-auto flex flex-col md:flex-row md:justify-center items-center md:shadow-lg rounded-lg mb-12 md:mb-20 pb-12 p-4">
+      <div className="container md:w-[90vw] max-w-screen-xl mx-auto flex flex-col lg:flex-row lg:justify-center items-center md:shadow-lg rounded-lg mb-12 md:mb-20 pb-12 p-4">
 
-  <div className="poster relative w-full md:w-auto mr-0 md:mr-8 flex items-center justify-center">
+  <div className="poster relative w-fit md:w-auto mr-0 md:mr-8 flex items-center justify-center">
     {/* <span className='absolute text-white top-3 px-4 -left-6 tracking-wider bg-green-500 -rotate-45 rounded-bl-lg rounded-tr-lg shadow-2xl pb-1'>{status}</span> */}
-    <img src={`https://image.tmdb.org/t/p/w500/${poster}`} className='poster-image shadow-2xl object-cover mx-12 w-fit h-[35rem] sm:w-[25rem] md:w-[20rem] md:h-[35rem]' alt={`Poster Image of ${title} Movie`} />
+    <img src={`https://image.tmdb.org/t/p/w500/${poster}`} className='poster-image shadow-2xl object-cover mx-12 w-fit h-[35rem] sm:w-[25rem] md:w-fit md:h-[35rem]' alt={`Poster Image of ${title} Movie`} />
   </div>
 
-  <div className="details w-full md:w-[30rem] mt-8 md:mt-0 md:ml-4 p-0">
+  <div className="details w-full md:w-[30rem] mt-8 lg:mt-0 md:ml-4 p-0">
     {/* <h2 className="text-xl font-semibold mb-4">{title}</h2> */}
     <p className='label overview'>{overview}</p>
-    {/* <p className='label'><span className='label-span'>Original Language : </span> {language.toUpperCase()}</p> */}
+    <p className='label'><span className='label-span'>Original Language : </span> {language.toUpperCase()}</p>
     <div className='label genres flex flex-wrap items-center justify-start'><span className='label-span '>Genres :</span>{genres?.map((genre, index) => <span key={index} className='inline-block mt-1 bg-gray-200 text-gray-700 rounded-full px-3 py-1 text-sm font-semibold mr-1'>{genre.name}</span>)}</div>
     {belongs_to_collection ? <p className='label'><span className='label-span'>Collection :</span>{belongs_to_collection.name}</p> : null}
     <p className='label'><span className='label-span'>RunTime :</span> {NumToTime(runtime)} hours</p>

@@ -11,10 +11,10 @@
 @layer components {
 
     .label{
-        @apply my-1 md:text-[1.1rem];
+        @apply md:text-[1rem] flex justify-start items-center ;
     }
 
     .label-span {
-        @apply font-semibold text-[1.1rem] md:text-[1.15rem] tracking-wide;
+        @apply font-semibold text-[1.1rem] md:text-[1.1rem] my-0 mr-1 inline;
     }
 }

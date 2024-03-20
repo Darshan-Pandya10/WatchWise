@@ -11,7 +11,7 @@ function Footer() {
     <a target='_blank' href='www.linkedin.com/in/darshanpandya811' className='m-2 text-white hover:text-[#6366F1]'><BsLinkedin size={26} /></a>
     <a target='_blank' href='https://www.themoviedb.org/' className='m-2 text-white hover:text-[#6366F1]'><RiMovie2Fill size={26} /></a>
   </div>
-  <p className='tracking-wider font-semibold text-white mb-4'>Copyright © 2024 - All rights reserved by WatchWise.</p>
+  <p className='tracking-wider px-2 font-semibold text-center text-white mb-4'>Copyright © 2024 - All rights reserved by WatchWise.</p>
 </footer>
 
   )

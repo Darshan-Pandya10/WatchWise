@@ -51,7 +51,7 @@ function Movie() {
 
 
   const {data : recommendationsData , isLoading : recommendationsIsLoading  , isError : recommendationsIsError , error : recommendationsError} = useQuery({
-    queryKey : ['recommendations'],
+    queryKey : ['recommendations' , {id}],
     queryFn : queryFuncForRecommendations,
     
   })
@@ -118,7 +118,7 @@ if(isError){
   return (
     <section className='details-page'>
 
-      <h1 className='title text-2xl tracking-wider font-semibold bg-black text-white mx-auto px-8 py-4 -mt-8 w-fit sm:px-8 sm:py-4 md:w-fit text-center mb-8'>{title}</h1>
+      <h1 className='title text-2xl tracking-wider font-semibold bg-black text-white mx-auto px-8 py-4 -mt-4 w-fit sm:px-8 sm:py-4 md:w-fit text-center mb-16'>{title}</h1>
 
       <div className="container md:w-[90vw] max-w-screen-xl mx-auto flex flex-col lg:flex-row lg:justify-center items-center md:shadow-lg rounded-lg mb-12 md:mb-20 pb-12 p-4">
 
@@ -147,8 +147,8 @@ if(isError){
 </div>
 
     {/* Recommendations movie list  */}
-      <h1 className='text-xl tracking-wider mb-8 border-8 rounded-tr-md rounded-br-md border-solid border-t-0 border-r-0 border-b-0 border-l-black font-semibold bg-[#6366f1] w-fit pr-5 drop-shadow-sm p-2 text-white'>Recommendations </h1>
-    <div className="recommendations movie-slide flex justify-start items-start overflow-x-scroll overflow-y-hidden mb-16">
+      <h1 className='text-xl tracking-wider mb-8 border-8 rounded-tr-md rounded-br-md border-solid border-t-0 border-r-0 border-b-0 border-l-black font-semibold bg-[#6366f1] w-fit pr-5 ml-6 drop-shadow-sm p-2 text-white'>Recommendations </h1>
+    <div className="recommendations ml-6 movie-slide flex justify-start items-start overflow-x-scroll overflow-y-hidden mb-16">
       
       {recommendationsData?.data?.results?.map((movie , index) => {
           return <MovieCard movie={movie} key={id} className='movie-card min-w-[12rem] min-h-[12rem] text-[0.75rem]'  />

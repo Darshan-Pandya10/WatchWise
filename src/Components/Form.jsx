@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-function Form({ onSubmit , refetch}) {
+function Form({ onSubmit , refetch }) {
 
   const CurrentDate = new Date();
   let CurrentYear = CurrentDate.getFullYear();
@@ -11,6 +11,7 @@ function Form({ onSubmit , refetch}) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    refetch()
     onSubmit({
       query,
       includeAdult,
@@ -20,7 +21,7 @@ function Form({ onSubmit , refetch}) {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="flex w-fit flex-col md:w-[36rem] md:flex-row md:justify-evenly md:items-center md:flex-wrap mx-auto my-16 px-4 py-8 bg-gray-100 rounded-lg">
+    <form className="flex w-fit flex-col md:w-[36rem] md:flex-row md:justify-evenly md:items-center md:flex-wrap mx-auto my-16 px-4 py-8 bg-gray-100 rounded-lg">
       <label className="block mb-2">
         <span className="form-label">Movie Name*:</span>
         <input
@@ -62,7 +63,7 @@ function Form({ onSubmit , refetch}) {
         />
       </label>
       <p className='text-gray-700 font-semibold tracking-wider'>(*) required input.</p>
-      <button type="submit" onClick={refetch} className="w-full font-semibold tracking-wider mt-4 py-2 bg-[#6366F1] text-white rounded-lg hover:bg-[#9193f7]">Submit</button>
+      <button onClick={handleSubmit} type="submit" className="w-full font-semibold tracking-wider mt-4 py-2 bg-[#6366F1] text-white rounded-lg hover:bg-[#9193f7]">Submit</button>
     </form>
   );
 }

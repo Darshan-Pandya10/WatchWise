@@ -6,16 +6,20 @@ import MovieCard from '../Components/MovieCard';
 
 function BrowseMovies() {
 
+    let responseId = null
+
+
   const url = 'https://api.themoviedb.org/3/search/movie'
-  const [userInput , setUserInput] = useState({})
   const queryFunc = async (options) => {
     const response = await axios.request(url , options);
     console.log(response)
+    responseId = response.data.results[0].id
+    console.log(responseId)
     return response;
   };
 
+
   const onSubmit = (searchInput) => { 
-    setUserInput(searchInput)   
     const options = {
       method: 'GET',
       params: {
@@ -35,23 +39,24 @@ function BrowseMovies() {
     queryFunc(options)
   }
 
- const {data , isLoading , isError , error, refetch} = useQuery({
-  queryKey : ['searchedMovie' , userInput.query],
+ const {data , isError , error , refetch} = useQuery({
+  queryKey : ['searchedMovie' , responseId],
   queryFn: queryFunc,
-  enabled:false
- })
+  enabled:false,
+  refetchOnWindowFocus:false,
+})
 
 console.log(data)
 
   //Loading Screen
 
-if(isLoading){
-  return (
-  <section className='browse-movies pt-32'>
-   <div className="loader"></div>
-  </section>
-  )
-}
+// if(isLoading){
+//   return (
+//   <section className='browse-movies pt-32'>
+//    <div className="loader"></div>
+//   </section>
+//   )
+// }
 
 //404 Error Image
 

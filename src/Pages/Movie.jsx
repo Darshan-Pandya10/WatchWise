@@ -3,10 +3,14 @@ import { useParams } from 'react-router-dom'
 import '../App.css'
 import { useQuery } from '@tanstack/react-query'
 import axios from 'axios'
+import MovieCard from '../Components/MovieCard'
+
 
 function Movie() {
+
   const {id} = useParams()
   const url = `https://api.themoviedb.org/3/movie/${id}`
+  const urlForRecommendations = `https://api.themoviedb.org/3/movie/${id}/recommendations`
 
   const options = {
   params: {language: 'en-US', page: '1'},
@@ -16,15 +20,45 @@ function Movie() {
   }
 };
 
-const queryFunc = async() => {
-  const response = await axios.get(url , options)
-  return response
-}
+  const queryFunc = async() => {
+    const response = await axios.request(url , options)
+    return response
+  }
 
-const {data , isLoading , isError , error} = useQuery({
-  queryKey : ['movie' , {id}],
-  queryFn : queryFunc
-})
+  const {data , isLoading , isError , error} = useQuery({
+    queryKey : ['movie' , {id}],
+    queryFn : queryFunc
+  })
+
+
+  //  recommendations
+
+  const optionsForRecommendations = {
+  method: 'GET',
+  url: urlForRecommendations,
+  params: {language: 'en-US', page: '1'},
+  headers: {
+    accept: 'application/json',
+    Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJhNGFjMTgwMjM2MTIxZTRhYmVjZDdiMzcyMWI0Njg0MSIsInN1YiI6IjY1OWQwOGU1Zjg1OTU4MDFhODExOTY0MyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.jl4vuS9kr0mczRAsBrD65L9yj0qZRMJ6OW_59d896zc'
+  }
+};
+
+  const queryFuncForRecommendations = async() => {
+    const responseForRecommendations = await axios.request(urlForRecommendations , optionsForRecommendations)
+    console.log(responseForRecommendations)
+    return responseForRecommendations
+  }
+
+
+  const {data : recommendationsData , isLoading : recommendationsIsLoading  , isError : recommendationsIsError , error : recommendationsError} = useQuery({
+    queryKey : ['recommendations'],
+    queryFn : queryFuncForRecommendations,
+    
+  })
+
+  console.log(recommendationsData)
+
+
 
 // Loading Screen
 
@@ -55,27 +89,31 @@ if(isError){
   </section>
   )
 }
-      console.log(data)
-      const {original_title : title , original_language : language , overview , poster_path : poster , release_date ,status , budget , revenue , homepage , genres , production_companies , runtime , belongs_to_collection } = data.data
 
-      const formattedBudget = budget.toLocaleString('en-US', {
+
+  console.log(data)
+  const {original_title : title , original_language : language , overview , poster_path : poster , release_date ,status , budget , revenue , homepage , genres , production_companies , runtime , belongs_to_collection } = data.data
+
+      
+  const formattedBudget = budget.toLocaleString('en-US', {
         style: 'currency',
         currency: 'USD',
       });
 
-      const formattedRevenue = revenue.toLocaleString('en-US', {
+  const formattedRevenue = revenue.toLocaleString('en-US', {
         style: 'currency',
         currency: 'USD',
       });
 
-      function NumToTime(runtime) { 
+  function NumToTime(runtime) { 
         var hours = Math.floor(runtime / 60);  
         var minutes = runtime % 60;
         if (minutes + ''.length < 2) {
           minutes = '0' + minutes; 
         }
         return hours + " : " + minutes;
-     }
+      }
+
 
   return (
     <section className='details-page'>
@@ -107,6 +145,15 @@ if(isError){
   </div>
 
 </div>
+
+    {/* Recommendations movie list  */}
+      <h1 className='text-xl tracking-wider mb-8 border-8 rounded-tr-md rounded-br-md border-solid border-t-0 border-r-0 border-b-0 border-l-black font-semibold bg-[#6366f1] w-fit pr-5 drop-shadow-sm p-2 text-white'>Recommendations </h1>
+    <div className="recommendations movie-slide flex justify-start items-start overflow-x-scroll overflow-y-hidden mb-16">
+      
+      {recommendationsData?.data?.results?.map((movie , index) => {
+          return <MovieCard movie={movie} key={id} className='movie-card min-w-[12rem] min-h-[12rem] text-[0.75rem]'  />
+      })}
+    </div>
 
 
     </section>

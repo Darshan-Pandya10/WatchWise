@@ -133,6 +133,14 @@ body{
 .movie-card:hover .movie-poster {
   filter: grayscale(1);
 }
+.recommendations .movie-card {
+  min-width: 12rem;
+  min-height: 12rem;
+}
+
+.recommendations .movie-card h1{
+  font-size: 0.9rem;
+}
 
 .movielist-content{
   background-color: #9b9db18a;

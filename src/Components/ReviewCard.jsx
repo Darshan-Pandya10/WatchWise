@@ -6,9 +6,7 @@ function ReviewCard({review , reviewsCount}) {
     // only show comments if their content length is more than 50 words 
 
     let words = content.split(' ');
-    console.log(words)
     const showReview =  reviewsCount === 10 ? (words.length > 50   ? true : false ) : true ;
-    console.log(showReview)
 
     // Input date in YYYY-MM-DD format
     let inputDate = date.slice(0,10);

@@ -5,6 +5,7 @@ import { useQuery } from '@tanstack/react-query'
 import axios from 'axios'
 import MovieCard from '../Components/MovieCard'
 import ReviewCard from '../Components/ReviewCard'
+import CastCard from '../Components/CastCard'
 import { v4 as uuidv4 } from 'uuid';
 
 
@@ -15,6 +16,7 @@ function Movie() {
   const url = `https://api.themoviedb.org/3/movie/${id}`
   const urlForRecommendations = `https://api.themoviedb.org/3/movie/${id}/recommendations`
   const urlForReviews = `https://api.themoviedb.org/3/movie/${id}/reviews`
+  const urlForCast = `https://api.themoviedb.org/3/movie/${id}/credits`
 
   const options = {
   params: {language: 'en-US', page: '1'},
@@ -34,7 +36,7 @@ function Movie() {
     queryFn : queryFunc
   })
 
-  // Images
+// Movie Reviews
 
   const queryFuncForReviews = async() => {
     const response = await axios.request(urlForReviews , options)
@@ -53,7 +55,6 @@ function Movie() {
 
   const optionsForRecommendations = {
   method: 'GET',
-  url: urlForRecommendations,
   params: {language: 'en-US', page: '1'},
   headers: {
     accept: 'application/json',
@@ -72,6 +73,20 @@ function Movie() {
     queryFn : queryFuncForRecommendations,
     
   })
+
+// Casts
+
+  // const queryFuncCasts = async() => {
+  //   const response = await axios.request(urlForCast , options)
+  //   return response.data.cast
+  // }
+
+  // const {data : castData , isLoading : castIsLoading , isError : castIsError} = useQuery({
+  //   queryKey : ['Cast' , {id}],
+  //   queryFn : queryFuncCasts
+  // })
+
+  // console.log(castData)
 
 
 
@@ -137,9 +152,6 @@ if(recommendationsIsError){
   )
 }
 
-
-
-  console.log(data)
   const {original_title : title , original_language : language , overview , poster_path : poster , release_date ,status , budget , revenue , homepage , genres , production_companies , runtime , belongs_to_collection } = data.data
 
       
@@ -235,3 +247,23 @@ if(recommendationsIsError){
 } 
 
 export default Movie
+
+
+
+
+
+
+
+
+
+
+{/* Cast */}
+
+    //   <h1 className='text-xl tracking-wider mb-8 border-8 rounded-tr-md rounded-br-md border-solid border-t-0 border-r-0 border-b-0 border-l-black font-semibold bg-[#6366f1] w-fit pr-5 ml-6 drop-shadow-sm p-2 text-white'>Cast </h1>
+
+    // <div className='reviewsContent w-auto flex overflow-x-scroll mb-16'>
+    // {castData?.map((cast) => {
+    //   const id = uuidv4()
+    //   return <CastCard cast={cast} key={id} />
+    // })}
+    // </div>

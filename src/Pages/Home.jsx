@@ -36,10 +36,10 @@ function Home() {
 
   return (
     <>
-    <div className='intro relative pb-16 pt-32 flex flex-col justify-around items-center md:flex-row md:justify-around md:item-center'>
+    <div className='intro relative pb-16 pt-20 md:pt-32 flex flex-col justify-around items-center md:flex-row md:justify-around md:item-center'>
       <div className='p-8'>
       <h1 className='text-3xl font-bold tracking-widest pb-4'>WatchWise</h1>
-      <p className='tracking-wider'>Introducing WatchWise, your ultimate destination for unraveling the enchanting world of cinema!
+      <p className='tracking-wider text-[1.05rem]'>Introducing WatchWise, your ultimate destination for unraveling the enchanting world of cinema!
       Immerse yourself in a cinematic journey like never before with our comprehensive movie database site. 
       WatchWise is designed to be your go-to hub for all things movies, offering an extensive collection of film details at your fingertips. </p>
       </div>

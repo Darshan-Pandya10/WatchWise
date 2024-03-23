@@ -13,6 +13,7 @@ function MovieLists({resObj}) {
       <div className='movie-slide flex justify-start items-start overflow-x-scroll overflow-y-hidden'>
         {result.map((movie) => {
         const id = uuidv4()
+        console.log(movie)
         return <MovieCard movie={movie} key={id}/>
       })}
       </div>

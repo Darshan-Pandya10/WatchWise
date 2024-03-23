@@ -20,6 +20,7 @@ function BrowseMovies() {
 
 
   const onSubmit = (searchInput) => { 
+    console.log(searchInput)
     const options = {
       method: 'GET',
       params: {
@@ -52,7 +53,7 @@ console.log(data)
 
 // if(isLoading){
 //   return (
-//   <section className='browse-movies pt-32'>
+//   <section className='browse-movies pt-20'>
 //    <div className="loader"></div>
 //   </section>
 //   )
@@ -72,7 +73,7 @@ if(error?.response?.status === 404){
 
 if(isError){
   return (
-  <section className='browse-movies pt-52'>
+  <section className='browse-movies pt-20'>
    <h1 className='font-bold text-xl tracking-wider'>Error : {error.message}</h1>
   </section>
   )
@@ -80,7 +81,7 @@ if(isError){
 
   return (
 
-    <div className='browse-movies min-h-screen pt-52 md:pt-20 px-4'>
+    <div className='browse-movies min-h-screen pt-20 px-4'>
       <Form onSubmit={onSubmit} refetch={refetch}/>
       <div className='movie-slide flex justify-start items-start overflow-x-scroll overflow-y-hidden'>
         {/* { data?.data?.results?.length >=1 && 

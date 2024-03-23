@@ -4,6 +4,9 @@ import '../App.css'
 import { useQuery } from '@tanstack/react-query'
 import axios from 'axios'
 import MovieCard from '../Components/MovieCard'
+import ReviewCard from '../Components/ReviewCard'
+import { v4 as uuidv4 } from 'uuid';
+
 
 
 function Movie() {
@@ -11,6 +14,7 @@ function Movie() {
   const {id} = useParams()
   const url = `https://api.themoviedb.org/3/movie/${id}`
   const urlForRecommendations = `https://api.themoviedb.org/3/movie/${id}/recommendations`
+  const urlForReviews = `https://api.themoviedb.org/3/movie/${id}/reviews`
 
   const options = {
   params: {language: 'en-US', page: '1'},
@@ -30,6 +34,20 @@ function Movie() {
     queryFn : queryFunc
   })
 
+  // Images
+
+  const queryFuncForReviews = async() => {
+    const response = await axios.request(urlForReviews , options)
+    return response?.data?.results
+  }
+
+  const {data : reviewsData , isLoading : reviewsIsLoading , isError :reviewsIsError} = useQuery({
+    queryKey : ['movieReviews' , {id}],
+    queryFn : queryFuncForReviews
+  })
+
+  const Reviews = reviewsData?.length > 10 ? reviewsData.slice(0,10) : reviewsData
+
 
   //  recommendations
 
@@ -45,7 +63,6 @@ function Movie() {
 
   const queryFuncForRecommendations = async() => {
     const responseForRecommendations = await axios.request(urlForRecommendations , optionsForRecommendations)
-    console.log(responseForRecommendations)
     return responseForRecommendations
   }
 
@@ -55,8 +72,6 @@ function Movie() {
     queryFn : queryFuncForRecommendations,
     
   })
-
-  console.log(recommendationsData)
 
 
 
@@ -90,6 +105,39 @@ if(isError){
   )
 }
 
+// recommendations 
+
+// Loading Screen
+
+if(recommendationsIsLoading){
+  return (
+  <section className='recommendations'>
+   <div className="loader"></div>
+  </section>
+  )
+}
+
+// 404 Error Image
+
+if(recommendationsError?.response?.status === 404){
+  return(
+    <section className='recommendations flex items-center justify-center'>
+      <img src='../src/assets/404-error.svg' alt='404 error image' className='object-cover w-fit h-fit' />
+    </section>
+  )
+}
+
+// For anyother error excluding 404
+
+if(recommendationsIsError){
+  return (
+  <section className='recommendations'>
+   <h1 className='font-bold text-xl tracking-wider'>Error : {error.message}</h1>
+  </section>
+  )
+}
+
+
 
   console.log(data)
   const {original_title : title , original_language : language , overview , poster_path : poster , release_date ,status , budget , revenue , homepage , genres , production_companies , runtime , belongs_to_collection } = data.data
@@ -114,6 +162,19 @@ if(isError){
         return hours + " : " + minutes;
       }
 
+    // Input date in YYYY-MM-DD format
+    let inputDate = release_date;
+
+    // Split the input date into year, month, and day
+    let parts = inputDate.split("-");
+    let year = parts[0];
+    let month = parts[1];
+    let day = parts[2];
+
+    // Format the date to DD-MM-YYYY format
+    let outputDate = day + "-" + month + "-" + year;
+
+
 
   return (
     <section className='details-page'>
@@ -134,7 +195,7 @@ if(isError){
     <div className='label genres flex flex-wrap items-center justify-start'><span className='label-span '>Genres :</span>{genres?.map((genre, index) => <span key={index} className='inline-block cursor-pointer mt-1 bg-gray-200 hover:bg-gray-300 text-gray-700 rounded-full px-3 py-1 text-sm font-semibold mr-1'>{genre.name}</span>)}</div>
     {belongs_to_collection ? <p className='label'><span className='label-span'>Collection :</span>{belongs_to_collection.name}</p> : null}
     <p className='label'><span className='label-span'>RunTime :</span> {NumToTime(runtime)} hours</p>
-    <p className='label'><span className='label-span'>Release Date :</span> {release_date}</p>
+    <p className='label'><span className='label-span'>Release Date :</span> {outputDate}</p>
     {/* <p className='label'><span className='label-span'>Status : </span> {status}</p> */}
     <p className='label'><span className='label-span'>Budget :</span> {formattedBudget}</p>
     <p className='label'><span className='label-span'>Revenue :</span> {formattedRevenue}</p>
@@ -146,11 +207,24 @@ if(isError){
 
 </div>
 
+{/* Reviews */}
+
+      <h1 className='text-xl tracking-wider mb-8 border-8 rounded-tr-md rounded-br-md border-solid border-t-0 border-r-0 border-b-0 border-l-black font-semibold bg-[#6366f1] w-fit pr-5 ml-6 drop-shadow-sm p-2 text-white'>Reviews </h1>
+
+    <div className={`reviewsContent ${Reviews.length === 1 ? 'sm:w-[35rem]' : 'w-auto'} w-auto flex overflow-x-scroll mb-16`}>
+    {Reviews?.map((review) => {
+      const id = uuidv4()
+      return <ReviewCard reviewsCount={Reviews.length} review={review} key={id} />
+    })}
+    </div>
+
+
     {/* Recommendations movie list  */}
       <h1 className='text-xl tracking-wider mb-8 border-8 rounded-tr-md rounded-br-md border-solid border-t-0 border-r-0 border-b-0 border-l-black font-semibold bg-[#6366f1] w-fit pr-5 ml-6 drop-shadow-sm p-2 text-white'>Recommendations </h1>
     <div className="recommendations ml-6 movie-slide flex justify-start items-start overflow-x-scroll overflow-y-hidden mb-16">
       
       {recommendationsData?.data?.results?.map((movie , index) => {
+          const id = uuidv4()
           return <MovieCard movie={movie} key={id} className='movie-card min-w-[12rem] min-h-[12rem] text-[0.75rem]'  />
       })}
     </div>

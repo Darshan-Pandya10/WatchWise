@@ -163,7 +163,7 @@ if(isError || recommendationsIsError || reviewsIsError){
     <div className='production-companies mb-4 ml-1'><span className='label-span'>Production Company(ies) :</span>{production_companies?.map((company, index) => {
       return <span key={index} className='inline-block mt-1 cursor-pointer bg-gray-200 text-gray-700 hover:bg-gray-300 rounded-full px-3 py-1 text-sm font-semibold mr-1'>{company.name}</span>
     })}</div>
-    <a target='_blank' rel="noopener noreferrer" className='px-4 py-2 my-2 font-semibold tracking-wide inline-block bg-[#6366F1] hover:bg-[#9193f7] text-white rounded-md' href={homepage}>Movie Homepage</a>
+    <a target='_blank' rel="noopener noreferrer" className='px-4 py-2 my-2 font-semibold tracking-wide inline-block bg-[#6366F1] hover:bg-[#7376fd] text-white rounded-md' href={homepage}>Movie Homepage</a>
   </div>
 
 </div>

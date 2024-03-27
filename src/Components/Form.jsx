@@ -63,7 +63,7 @@ function Form({ onSubmit , refetch }) {
         />
       </label>
       <p className='text-gray-700 font-semibold tracking-wider'>(*) required input.</p>
-      <button onClick={handleSubmit} type="submit" className="w-full font-semibold tracking-wider mt-4 py-2 bg-[#6366F1] text-white rounded-lg hover:bg-[#9193f7]">Submit</button>
+      <button onClick={handleSubmit} type="submit" className="w-full font-semibold tracking-wider mt-4 py-2 bg-[#6366F1] text-white rounded-lg hover:bg-[#7376fd]">Submit</button>
     </form>
   );
 }

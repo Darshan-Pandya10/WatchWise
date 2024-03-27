@@ -13,13 +13,14 @@ function Header() {
 
   return (  
     <div className='header fixed h-fit z-50 backdrop-blur-lg w-screen shadow-lg flex flex-col justify-around items-start p-4 sm:flex-row sm:justify-between sm:items-center'>
-      <Link to='/'>
+      <Link to='/' className='flex'>
       <h1 className='font-semibold text-xl md:text-2xl'>
         <span className='text-[#6366f1] font-bold'>W</span>
         atch
         <span className='text-[#6366f1] font-bold'>W</span>
         ise
       </h1>
+      <img src="../src/assets/tab-svg.svg" className='w-[2rem] h-[2rem]' alt="" />
       </Link>
       <div className='sm:hidden'> 
       <button onClick={handleNavbar} className='absolute top-4 right-4'> {isNavbarVisible ? <RxCross1 className='hover:text-[#6366F1]' size={26} /> : <RxHamburgerMenu className='hover:text-[#6366F1]'  size={26} />}</button>

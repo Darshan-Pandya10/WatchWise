@@ -1,44 +1,43 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useQuery } from '@tanstack/react-query';
 import Form from '../Components/Form';
 import axios from 'axios';
-import MovieCard from '../Components/MovieCard';
 
 function BrowseMovies() {
 
     let responseId = null
 
-
-  const url = 'https://api.themoviedb.org/3/search/movie'
   const queryFunc = async (options) => {
-    const response = await axios.request(url , options);
+    const response = await axios.request(options);
+    responseId = response?.data?.results[0]?.id
     console.log(response)
-    responseId = response.data.results[0].id
-    console.log(responseId)
     return response;
   };
 
+  
+  const onSubmit = (searchInput) => {
+  console.log(searchInput);
+  const params = {
+    query: searchInput.query,
+    include_adult: searchInput.includeAdult.toString(),
+    language: searchInput.language,
+    primary_release_year: searchInput.year.toString(),
+    page: '1',
+    year: searchInput.year.toString(),
+  };
 
-  const onSubmit = (searchInput) => { 
-    console.log(searchInput)
-    const options = {
-      method: 'GET',
-      params: {
-        query: searchInput.query,
-        include_adult: searchInput.includeAdult.toString(),
-        language: searchInput.language,
-        primary_release_year: searchInput.year.toString,
-        page:'1',
-        region : 'usa',
-        year: searchInput.year
-      },
-      headers: {
-        accept: 'application/json',
-        Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJhNGFjMTgwMjM2MTIxZTRhYmVjZDdiMzcyMWI0Njg0MSIsInN1YiI6IjY1OWQwOGU1Zjg1OTU4MDFhODExOTY0MyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.jl4vuS9kr0mczRAsBrD65L9yj0qZRMJ6OW_59d896zc'
-      }
-    };
-    queryFunc(options)
-  }
+  const options = {
+    method: 'GET',
+    url: 'https://api.themoviedb.org/3/search/movie',
+    params: params,
+    headers: {
+      accept: 'application/json',
+      Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJhNGFjMTgwMjM2MTIxZTRhYmVjZDdiMzcyMWI0Njg0MSIsInN1YiI6IjY1OWQwOGU1Zjg1OTU4MDFhODExOTY0MyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.jl4vuS9kr0mczRAsBrD65L9yj0qZRMJ6OW_59d896zc',
+    },
+  };
+  console.log(options);
+  queryFunc(options);
+};
 
  const {data , isError , error , refetch} = useQuery({
   queryKey : ['searchedMovie' , responseId],
@@ -48,6 +47,7 @@ function BrowseMovies() {
 })
 
 console.log(data)
+console.log(error)
 
   //Loading Screen
 
@@ -73,7 +73,7 @@ if(error?.response?.status === 404){
 
 if(isError){
   return (
-  <section className='browse-movies pt-20'>
+  <section className='browse-movies pt-20 px-12'>
    <h1 className='font-bold text-xl tracking-wider'>Error : {error.message}</h1>
   </section>
   )

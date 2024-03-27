@@ -5,7 +5,6 @@ import { useQuery } from '@tanstack/react-query'
 import axios from 'axios'
 import MovieCard from '../Components/MovieCard'
 import ReviewCard from '../Components/ReviewCard'
-import CastCard from '../Components/CastCard'
 import { v4 as uuidv4 } from 'uuid';
 
 
@@ -16,7 +15,6 @@ function Movie() {
   const url = `https://api.themoviedb.org/3/movie/${id}`
   const urlForRecommendations = `https://api.themoviedb.org/3/movie/${id}/recommendations`
   const urlForReviews = `https://api.themoviedb.org/3/movie/${id}/reviews`
-  const urlForCast = `https://api.themoviedb.org/3/movie/${id}/credits`
 
   const options = {
   params: {language: 'en-US', page: '1'},
@@ -38,6 +36,7 @@ function Movie() {
 
 // Movie Reviews
 
+
   const queryFuncForReviews = async() => {
     const response = await axios.request(urlForReviews , options)
     return response?.data?.results
@@ -45,10 +44,10 @@ function Movie() {
 
   const {data : reviewsData , isLoading : reviewsIsLoading , isError :reviewsIsError} = useQuery({
     queryKey : ['movieReviews' , {id}],
-    queryFn : queryFuncForReviews
+    queryFn : queryFuncForReviews,
   })
-
-  const Reviews = reviewsData?.length > 10 ? reviewsData.slice(0,10) : reviewsData
+  console.log(reviewsData)
+  let Reviews = reviewsData?.length > 10 ? reviewsData.slice(0,10) : reviewsData
 
 
   //  recommendations
@@ -74,25 +73,10 @@ function Movie() {
     
   })
 
-// Casts
-
-  // const queryFuncCasts = async() => {
-  //   const response = await axios.request(urlForCast , options)
-  //   return response.data.cast
-  // }
-
-  // const {data : castData , isLoading : castIsLoading , isError : castIsError} = useQuery({
-  //   queryKey : ['Cast' , {id}],
-  //   queryFn : queryFuncCasts
-  // })
-
-  // console.log(castData)
-
-
 
 // Loading Screen
 
-if(isLoading){
+if(isLoading || recommendationsIsLoading || reviewsIsLoading){
   return (
   <section className='details-page'>
    <div className="loader"></div>
@@ -102,7 +86,7 @@ if(isLoading){
 
 // 404 Error Image
 
-if(error?.response?.status === 404){
+if(error?.response?.status || recommendationsError?.response?.status === 404){
   return(
     <section className='details-page flex items-center justify-center'>
       <img src='../src/assets/404-error.svg' alt='404 error image' className='object-cover w-fit h-fit' />
@@ -112,7 +96,7 @@ if(error?.response?.status === 404){
 
 // For anyother error excluding 404
 
-if(isError){
+if(isError || recommendationsIsError || reviewsIsError){
   return (
   <section className='details-page'>
    <h1 className='font-bold text-xl tracking-wider'>Error : {error.message}</h1>
@@ -120,37 +104,6 @@ if(isError){
   )
 }
 
-// recommendations 
-
-// Loading Screen
-
-if(recommendationsIsLoading){
-  return (
-  <section className='recommendations'>
-   <div className="loader"></div>
-  </section>
-  )
-}
-
-// 404 Error Image
-
-if(recommendationsError?.response?.status === 404){
-  return(
-    <section className='recommendations flex items-center justify-center'>
-      <img src='../src/assets/404-error.svg' alt='404 error image' className='object-cover w-fit h-fit' />
-    </section>
-  )
-}
-
-// For anyother error excluding 404
-
-if(recommendationsIsError){
-  return (
-  <section className='recommendations'>
-   <h1 className='font-bold text-xl tracking-wider'>Error : {error.message}</h1>
-  </section>
-  )
-}
 
   const {original_title : title , original_language : language , overview , poster_path : poster , release_date ,status , budget , revenue , homepage , genres , production_companies , runtime , belongs_to_collection } = data.data
 
@@ -247,23 +200,3 @@ if(recommendationsIsError){
 } 
 
 export default Movie
-
-
-
-
-
-
-
-
-
-
-{/* Cast */}
-
-    //   <h1 className='text-xl tracking-wider mb-8 border-8 rounded-tr-md rounded-br-md border-solid border-t-0 border-r-0 border-b-0 border-l-black font-semibold bg-[#6366f1] w-fit pr-5 ml-6 drop-shadow-sm p-2 text-white'>Cast </h1>
-
-    // <div className='reviewsContent w-auto flex overflow-x-scroll mb-16'>
-    // {castData?.map((cast) => {
-    //   const id = uuidv4()
-    //   return <CastCard cast={cast} key={id} />
-    // })}
-    // </div>

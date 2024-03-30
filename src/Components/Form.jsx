@@ -1,33 +1,36 @@
 import React, { useState } from 'react';
 
-function Form({ onSubmit , refetch }) {
+function Form({ getOptions , searchInput , refetch }) {
 
   const CurrentDate = new Date();
   let CurrentYear = CurrentDate.getFullYear();
-  const [query, setQuery] = useState('');
-  const [includeAdult, setIncludeAdult] = useState(false);
-  const [language, setLanguage] = useState('en-US');
-  const [year, setYear] = useState(CurrentYear);
+  const [userInput , setUserInput ] = useState(searchInput)
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    refetch()
-    onSubmit({
-      query,
-      includeAdult,
-      language,
-      year
-    });
+
+  const handleChange = (e) => {
+    const {name , value} = e.target
+     setUserInput(prevState => ({
+      ...prevState , [name] : value
+     }))
   };
 
+  console.log(userInput)
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    refetch()
+    return getOptions(userInput)
+  }
+
   return (
-    <form className="flex w-fit flex-col md:w-[36rem] md:flex-row md:justify-evenly md:items-center md:flex-wrap mx-auto my-16 px-4 py-8 bg-gray-100 rounded-lg">
+    <form onSubmit={handleSubmit} className="flex w-fit flex-col md:w-[36rem] md:flex-row md:justify-evenly md:items-center md:flex-wrap mx-auto my-16 px-4 py-8 bg-gray-100 rounded-lg">
       <label className="block mb-2">
         <span className="form-label">Movie Name*:</span>
         <input
           type="text"
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
+          name='query'
+          value={userInput.query}
+          onChange={handleChange}
           required
           className='form-input'
         />
@@ -35,8 +38,9 @@ function Form({ onSubmit , refetch }) {
       <label className="block mb-2">
         <span className="form-label">Adult:</span>
         <select
-          value={includeAdult}
-          onChange={(e) => setIncludeAdult(e.target.value === 'true')}
+        name='includeAdult'
+          value={userInput.includeAdult}
+          onChange={handleChange}
           className="form-input-short"
         >
           <option value="true">True</option>
@@ -47,8 +51,9 @@ function Form({ onSubmit , refetch }) {
         <span className="form-label">Language:</span>
         <input
           type="text"
-          value={language}
-          onChange={(e) => setLanguage(e.target.value)}
+          name='language'
+          value={userInput.language}
+          onChange={handleChange} 
           className="form-input-short"
         />
       </label>
@@ -56,14 +61,15 @@ function Form({ onSubmit , refetch }) {
         <span className="form-label">Year*:</span>
         <input
           type="number"
-          value={year}
-          onChange={(e) => setYear(e.target.value)}
+          name='year'
+          value={userInput.year}
+          onChange={handleChange}        
           className="form-input-short"
           max={CurrentYear}
         />
       </label>
       <p className='text-gray-700 font-semibold tracking-wider'>(*) required input.</p>
-      <button onClick={handleSubmit} type="submit" className="w-full font-semibold tracking-wider mt-4 py-2 bg-[#6366F1] text-white rounded-lg hover:bg-[#7376fd]">Submit</button>
+      <button type="submit" className="w-full font-semibold tracking-wider mt-4 py-2 bg-[#6366F1] text-white rounded-lg hover:bg-[#7376fd]">Submit</button>
     </form>
   );
 }

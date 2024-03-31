@@ -6,7 +6,7 @@ WatchWise is a platform for where user can find a movielists based on 4 differen
 
 ## Visuals
 
-![HomePage]('./src/assets/ProjectVisuals/homepage.jpg')
+![HomePage]('/src/assets/ProjectVisuals/homepage.png')
 
 ## Usage
 

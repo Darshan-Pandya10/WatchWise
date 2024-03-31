@@ -93,7 +93,7 @@ if(error?.response?.status || recommendationsError?.response?.status === 404){
   )
 }
 
-// For anyother error excluding 404
+// For any other error excluding 404
 
 if(isError || recommendationsIsError || reviewsIsError){
   return (

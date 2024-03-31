@@ -24,11 +24,12 @@ const queryFunc = async() => {
         const topRatedResponse = await axios.get(topRatedUrl , options)
         const nowPlayingResponse = await axios.get(nowPlayingUrl , options)
         const upcomingResponse = await axios.get(upcomingUrl , options)
-     return [{name : 'Popular Movies' ,response : popularResponse},
+     return [
+            {name : 'Popular Movies' ,response : popularResponse},
             {name : 'Top Rated Movies' ,response : topRatedResponse},
             {name : 'Now Playing Movies' ,response : nowPlayingResponse},
             {name : 'Upcoming Movies' ,response : upcomingResponse}
-      ]
+          ]
 }
 
 function Home() {
@@ -45,7 +46,6 @@ function Home() {
       </div>
       <img src="src/assets/hero-svg.svg" className='sm:mr-14' alt="hero image" width={350}height={350}/>
     </div>
-    {/* border-2 border-solid border-black */}
     
     <section className='movielist-content p-0'>
       <div className="custom-shape-divider-wave mb-20">

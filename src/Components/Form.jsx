@@ -41,10 +41,10 @@ function Form({ getOptions , searchInput , refetch }) {
         name='includeAdult'
           value={userInput.includeAdult}
           onChange={handleChange}
-          className="form-input-short"
+          className="form-input-short cursor-pointer"
         >
-          <option value="true">True</option>
-          <option value="false">False</option>
+          <option value="true" className='cursor-pointer'>True</option>
+          <option value="false" className='cursor-pointer'>False</option>
         </select>
       </label>
       <label className="block mb-2">
@@ -68,7 +68,7 @@ function Form({ getOptions , searchInput , refetch }) {
           max={CurrentYear}
         />
       </label>
-      <p className='text-gray-700 font-semibold tracking-wider'>(*) required input.</p>
+      <p className='text-gray-700 font-semibold tracking-wider'>(*) required inputs.</p>
       <button type="submit" className="w-full font-semibold tracking-wider mt-4 py-2 bg-[#6366F1] text-white rounded-lg hover:bg-[#7376fd]">Submit</button>
     </form>
   );

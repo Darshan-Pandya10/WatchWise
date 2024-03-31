@@ -93,7 +93,7 @@ if(isError){
 
   return (
 
-    <div className='browse-movies min-h-screen pt-20 px-4 mb-32'>
+    <div className='browse-movies min-h-screen pt-20 px-4 pb-32'>
       <Form getOptions={getOptions} searchInput={searchInput} refetch={refetch}/>
        { data && <h1 className='text-xl mt-8 md:mt-16 mx-4 md:mx-8 tracking-wider mb-8 border-8 rounded-tr-md rounded-br-md border-solid border-t-0 border-r-0 border-b-0 border-l-black font-semibold bg-[#6366f1] w-fit pr-5 drop-shadow-sm p-2 text-white'>{data.length === 1 ? 'Result' : 'Results'}</h1>}
       <div className='movie-slide flex justify-start mx-4 md:mx-8 items-start overflow-x-scroll overflow-y-hidden'>

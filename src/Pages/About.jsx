@@ -19,7 +19,7 @@ function About() {
 
       <div className="mb-8">
         <h2 className="text-2xl font-bold mb-4">Advanced Search</h2>
-        <p className="mb-4">Looking for something specific? Our advanced search feature empowers users to refine their movie selection based on release year or rating, ensuring you find the perfect film for any occasion.</p>
+        <p className="mb-4">Looking for something specific? Our advanced search feature empowers users to refine their movie selection based on release year or name, ensuring you find the perfect film for any occasion.</p>
       </div>
 
       <div>

@@ -129,6 +129,11 @@ body{
 .movie-card{
   scroll-snap-align: start;
   filter: grayscale(0);
+  transition: all 100ms ease-in-out 100ms;
+}
+
+.movie-card:hover{
+    transform: scale(1.05);
 }
 
 .movie-card:hover .movie-poster {
@@ -178,3 +183,5 @@ body {
   border-radius: 20px;
   border: 3px solid rgb(103, 103, 103);
 }
+
+

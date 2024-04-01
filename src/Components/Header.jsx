@@ -3,7 +3,7 @@ import { NavLink , Link } from 'react-router-dom'
 import { RxHamburgerMenu } from "react-icons/rx";
 import { RxCross1 } from "react-icons/rx";
 import '../App.css'
-import {TabSvg} from '../assets/TabSvg.svg'
+import TabSvg from '../assets/TabSvg.svg'
 
 function Header() {
   const [isNavbarVisible, setIsNavbarVisible] = useState(false);

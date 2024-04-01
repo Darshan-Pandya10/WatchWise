@@ -3,7 +3,7 @@ import axios from 'axios'
 import { useQuery } from '@tanstack/react-query'
 import { v4 as uuidv4 } from 'uuid';
 import MovieLists from '../Components/MovieLists';
-import {HeroSvg} from '../assets/HeroSvg.svg'
+import HeroSvg from '../assets/HeroSvg.svg'
 
 
   const popularUrl = 'https://api.themoviedb.org/3/movie/popular'

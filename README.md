@@ -20,4 +20,4 @@ For any help/inquiry regarding the project contact me via mail : pandyadarshan81
 
 ## Project Status
 
-live on netlify. ![Live](https://thewatchwise.netlify.app/)
+live on netlify. [Live](https://thewatchwise.netlify.app/)

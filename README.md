@@ -14,8 +14,6 @@ WatchWise is a platform for where user can find a movielists based on 4 differen
 ![browse movies](https://github.com/Darshan-Pandya10/WatchWise/assets/80563657/1804d6e8-cc41-4aea-829f-e98a313ff793)
 ![about](https://github.com/Darshan-Pandya10/WatchWise/assets/80563657/d58d9f9c-28a0-428d-9794-5459e925ce4a)
 
-## Usage
-
 ## Support
 
 For any help/inquiry regarding the project contact me via mail : pandyadarshan811@gmail.com

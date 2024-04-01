@@ -170,7 +170,9 @@ if(isError || recommendationsIsError || reviewsIsError){
 
 {/* Reviews */}
 
+    {Reviews.length >=1 &&
       <h1 className='text-xl tracking-wider mb-8 border-8 rounded-tr-md rounded-br-md border-solid border-t-0 border-r-0 border-b-0 border-l-black font-semibold bg-[#6366f1] w-fit pr-5 ml-6 drop-shadow-sm p-2 text-white'>Reviews </h1>
+    }
 
     <div className={`reviewsContent ${Reviews.length === 1 ? 'sm:w-[35rem]' : 'w-auto'} w-auto flex overflow-x-scroll mb-16`}>
     {Reviews?.map((review) => {
@@ -181,16 +183,15 @@ if(isError || recommendationsIsError || reviewsIsError){
 
 
     {/* Recommendations movie list  */}
-      <h1 className='text-xl tracking-wider mb-8 border-8 rounded-tr-md rounded-br-md border-solid border-t-0 border-r-0 border-b-0 border-l-black font-semibold bg-[#6366f1] w-fit pr-5 ml-6 drop-shadow-sm p-2 text-white'>Recommendations </h1>
+    {recommendationsData?.data?.results.length >= 1 && <h1 className='text-xl tracking-wider mb-8 border-8 rounded-tr-md rounded-br-md border-solid border-t-0 border-r-0 border-b-0 border-l-black font-semibold bg-[#6366f1] w-fit pr-5 ml-6 drop-shadow-sm p-2 text-white'>Recommendations </h1>}
+      
     <div className="recommendations ml-6 movie-slide flex justify-start items-start overflow-x-scroll overflow-y-hidden mb-16">
       
-      {recommendationsData?.data?.results?.map((movie , index) => {
+      {recommendationsData?.data?.results?.map((movie) => {
           const id = uuidv4()
           return <MovieCard movie={movie} key={id} className='movie-card w-[12rem] min-h-[12rem] text-[0.75rem]'  />
       })}
     </div>
-
-
     </section>
   )
 } 

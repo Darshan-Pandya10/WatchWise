@@ -20,7 +20,7 @@ function Header() {
         <span className='text-[#6366f1] font-bold'>W</span>
         ise
       </h1>
-      <img src="src/assets/tab-svg.svg" className='w-[2rem] h-[2rem]' alt="" />
+      <img src="../assets/tab-svg.svg" className='w-[2rem] h-[2rem]' alt="" />
       </Link>
       <div className='sm:hidden'> 
       <button onClick={handleNavbar} className='absolute top-4 right-4'> {isNavbarVisible ? <RxCross1 className='hover:text-[#6366F1]' size={26} /> : <RxHamburgerMenu className='hover:text-[#6366F1]'  size={26} />}</button>

@@ -3,6 +3,8 @@ import axios from 'axios'
 import { useQuery } from '@tanstack/react-query'
 import { v4 as uuidv4 } from 'uuid';
 import MovieLists from '../Components/MovieLists';
+import {HeroSvg} from '../assets/HeroSvg.svg'
+
 
   const popularUrl = 'https://api.themoviedb.org/3/movie/popular'
   const topRatedUrl = 'https://api.themoviedb.org/3/movie/top_rated'
@@ -44,7 +46,7 @@ function Home() {
       Immerse yourself in a cinematic journey like never before with our comprehensive movie database site. 
       WatchWise is designed to be your go-to hub for all things movies, offering an extensive collection of film details at your fingertips. </p>
       </div>
-      <img src="../src/assets/hero-svg.svg" className='sm:mr-14' alt="hero image" width={350}height={350}/>
+      <img src={HeroSvg} className='sm:mr-14' alt="hero image" width={350}height={350}/>
     </div>
     
     <section className='movielist-content p-0'>

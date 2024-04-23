@@ -1,4 +1,5 @@
 import React from 'react'
+import qoute from '../assets/quote.svg'
 
 function ReviewCard({review , reviewsCount}) {
     const {author , content ,  created_at : date  } = review
@@ -24,7 +25,7 @@ function ReviewCard({review , reviewsCount}) {
   return (
     ( showReview === true ? 
     <div className='review-card p-4 m-8 rounded-lg bg-[#6365f12e] h-fit shadow-lg min-w-[90vw] sm:min-w-[30rem]'>
-        <img src="../src/assets/quote.svg" className='w-[2rem]' alt="" />
+      <img src={qoute} className='w-[2rem]' alt="" />
         <p className='min-h-fit  max-h-[10rem] overflow-y-scroll my-2 text-[1.05rem] pr-1'>{content}</p>
         <p className='text-base font-semibold text-[#6366F1]'>{author}</p>
         <p className='text-gray-700 font-semibold'>{outputDate}</p>

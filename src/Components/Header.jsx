@@ -29,12 +29,16 @@ function Header() {
         <nav className='mt-3 sm:mt-0 hidden sm:flex sm:justify-center sm:items-center font-semibold text-[1rem]'>
           <NavLink className='navlink mb-1 sm:mr-3 sm:mb-0' to='/'>Home</NavLink>
           <NavLink className='navlink mb-1 sm:mr-3 sm:mb-0' to='browse-movies'>BrowseMovies</NavLink>
+          <NavLink className='navlink mb-1 sm:mr-3 sm:mb-0' to='watchlist'>WatchList</NavLink>
           <NavLink className='navlink mb-1 sm:mr-3 sm:mb-0' to='about'>About</NavLink>
         </nav>
         {isNavbarVisible && <nav className='mt-4 tracking-wider font-semibold'>
           <NavLink className='navlink mb-1' to='/'>Home</NavLink>
           <NavLink className='navlink mb-1 block' to='browse-movies'>BrowseMovies</NavLink>
+          <NavLink className='navlink mb-1 block' to='watchlist'>WatchList</NavLink>
           <NavLink className='navlink mb-1 block' to='about'>About</NavLink>
+
+
         </nav>}
     </div>
   )

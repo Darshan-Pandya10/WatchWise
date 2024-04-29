@@ -5,6 +5,8 @@ import BrowseMovies from './Pages/BrowseMovies'
 import Movie from './Pages/Movie'
 import About from './Pages/About'
 import Error from './Pages/Error'
+import WatchList from './Pages/WatchList'
+
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 
@@ -33,6 +35,10 @@ const router = createBrowserRouter([
       {
         path:'movie/:id',
         element: <Movie/>
+      },
+      {
+        path:'watchlist',
+        element: <WatchList/>
       },
       {
         path:'about',

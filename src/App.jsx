@@ -9,6 +9,18 @@ import WatchList from './Pages/WatchList'
 
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import { createContext } from 'react';
+import { useState } from 'react'
+
+
+
+
+    
+const storedData = localStorage.getItem('movies')
+const parsedStoredData = JSON.parse(storedData)
+export const WatchListContext = createContext(parsedStoredData);
+
+
 
 const queryClient = new QueryClient({
   defaultOptions : {
@@ -51,11 +63,14 @@ const router = createBrowserRouter([
 
 function App() {
  
+  const [watchList , setWatchList] = useState(parsedStoredData)
 
   return (
     <div className='app'>
       <QueryClientProvider client={queryClient}>
+      <WatchListContext.Provider value={{watchList , setWatchList}}>
       <RouterProvider router={router}/>
+      </WatchListContext.Provider>
       </QueryClientProvider>
     </div>
   )

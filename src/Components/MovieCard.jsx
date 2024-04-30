@@ -39,14 +39,11 @@ function MovieCard({movie}) {
   // console.log(isInWatchList)
 
   return (
-    <div className='movie-card bg-white cursor-pointer  relative min-w-[16rem] min-h-[16rem] mx-6 my-8 p-0 shadow-lg rounded-lg pb-2'>
-       <img  src={ poster ? `https://image.tmdb.org/t/p/w500/${poster}` : '../src/assets/PosterImage.jpg'}  className='movie-poster border-none rounded-tl-lg rounded-tr-lg object-fill w-full h-full md:min-w-[12rem] md:h-[25rem]'  alt="movie poster" />
+    <div className='movie-card bg-white cursor-pointer  relative min-w-[16rem] min-h-[14rem] mx-6 my-8 p-0 shadow-lg rounded-lg pb-2'>
+       <img  src={ poster ? `https://image.tmdb.org/t/p/w500/${poster}` : '../src/assets/PosterImage.jpg'}  className='movie-poster border-none rounded-tl-lg rounded-tr-lg object-fill w-full h-full md:min-w-[12rem] md:h-[20rem]'  alt="movie poster" />
         <NavLink to={`/movie/${id}`}>
         <h1 className='font-bold p-2 text-[1.15rem] leading-6 hover:text-[#6366F1]'>{title}</h1>
         </NavLink>
-        {/* {watchList.filter((movie) => movie.id === id) ? <MdOutlineBookmarkAdded 
-          size={32}
-          className='absolute top-2 left-2 rounded-[50%] bg-blue-300 p-[4px]' /> :   */}
           <MdOutlineBookmarkAdd
             size={32}
             className='absolute top-2 left-2 rounded-[50%] bg-blue-300 p-[4px]'

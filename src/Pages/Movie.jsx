@@ -189,7 +189,7 @@ if(isError || recommendationsIsError || reviewsIsError){
       
       {recommendationsData?.data?.results?.map((movie) => {
           const id = uuidv4()
-          return <MovieCard movie={movie} key={id} className='movie-card w-[12rem] min-h-[12rem] text-[0.75rem]'  />
+          return <MovieCard movie={movie} key={id} className='movie-card w-[12rem] min-h-[10rem] text-[0.75rem]'  />
       })}
     </div>
     </section>

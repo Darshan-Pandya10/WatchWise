@@ -6,7 +6,7 @@ import { WatchListContext } from '../App';
 function MovieCard({ movie }) {
   const { watchList, setWatchList } = useContext(WatchListContext);
 
-  const { original_title: title, original_language: language, poster_path: poster, id } = movie;
+  const { title: title, original_language: language, poster_path: poster, id } = movie;
 
   const addToWatchList = () => {
     // Check if the movie is already in the watchlist
@@ -21,7 +21,7 @@ function MovieCard({ movie }) {
   };
 
   return (
-    <div className="movie-card bg-white cursor-pointer relative min-w-[16rem] min-h-[14rem] mx-6 my-8 p-0 shadow-lg rounded-lg pb-2">
+    <div className="movie-card bg-white cursor-pointer relative min-w-[16rem] min-h-[24rem] mx-6 my-8 p-0 shadow-lg rounded-lg pb-2">
       <img
         src={poster ? `https://image.tmdb.org/t/p/w500/${poster}` : '../src/assets/PosterImage.jpg'}
         className="movie-poster border-none rounded-tl-lg rounded-tr-lg object-fill w-full h-full md:min-w-[12rem] md:h-[20rem]"

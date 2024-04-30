@@ -2,7 +2,11 @@
 
 ## Description
 
-WatchWise is a platform for where user can find a movielists based on 4 different criterias like popular,upcoming,top rated and now streaming.there will be an option for advance search like search movie based on year it released or by rating.users can get instant details about the movie they want to watch or just want to know more about it. Introducing WatchWise, your go-to platform for discovering movies effortlessly. With just a few clicks, users can explore curated movie lists categorized under four distinct criteria: popular, upcoming, top-rated, and now streaming. For those seeking more specific choices, our advanced search feature allows users to filter movies by release year or name. Get instant access to comprehensive movie details, whether you're deciding on your next watch or simply want to learn more about a particular film. Discover, explore, and indulge in cinematic experiences like never before with WatchWise.
+Introducing WatchWise, your ultimate destination for seamless movie discovery and personalized viewing experiences. Explore curated movie lists based on popular, upcoming, top-rated, and now streaming categories, or create your own customized watchlists. Unlock the power of tailored movie selection by adding films to your watchlist with just a click, keeping all your cinematic desires organized in one convenient place.
+
+But that's not all. Our advanced search feature allows you to search by movie name and release year, empowering you to refine your movie choices further. Dive deep into the world of cinema with instant access to comprehensive movie details, ensuring every viewing decision is informed and exciting.
+
+Discover, curate, and enjoy a world of movies effortlessly with WatchWise. Your movie journey starts here.
 
 ## Visuals
 

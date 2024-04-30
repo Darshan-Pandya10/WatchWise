@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from 'react'
 import { NavLink } from 'react-router-dom'
-import { MdBookmarkRemove } from "react-icons/md";
+import { MdOutlineBookmarkRemove } from "react-icons/md";
 import { WatchListContext } from '../App';
 
 
@@ -35,7 +35,7 @@ const WatchListMovieCard = ({movie}) => {
         <h1 className='font-bold p-2 text-[1.15rem] leading-6 hover:text-[#6366F1]'>{title}</h1>
         </NavLink>
 
-        <MdBookmarkRemove  size={26} onClick={() => removeFromWatchList(id)} />
+        <MdOutlineBookmarkRemove size={32} className='absolute top-2 left-2 rounded-[50%] bg-blue-300 p-[4px]' onClick={() => removeFromWatchList(id)} />
 
         <p className='absolute font-bold text-base tracking-wider top-2 right-2 bg-blue-300 text-black p-1 rounded-tr-lg rounded-bl-lg'>{language}</p>
     </div> 

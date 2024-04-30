@@ -9,18 +9,10 @@ const WatchList = () => {
 
     const {watchList , setWatchList} = useContext(WatchListContext)
 
-    // console.log(watchList)
-
-    // if(watchList.length === 0 ){
-    //     localStorage.clear()
-    //     setWatchList([])
-    // }
-
-
 
   return (
     <section className='watchlist min-h-screen pb-16 pt-20 md:pt-32 px-8 mb-20 flex items-center justify-center'>
-        <section className="watchlist-contianer m-4 p-4 rounded-lg text-center flex justify-start items-start flex-wrap bg-slate-300">
+        <section className="watchlist-contianer m-4 p-4 rounded-lg  flex justify-start items-start flex-wrap bg-slate-300">
             {watchList.length >= 1  ?  watchList?.map((movie) => {
                 const id = uuidv4()
                 return <WatchListMovieCard movie={movie} key={id}/>

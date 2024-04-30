@@ -26,6 +26,12 @@ body{
   font-family: "Barlow Semi Condensed", sans-serif;
 }
 
+.navlink{
+  display: flex;
+  justify-items: center;
+  align-items: center;
+}
+
 .navlink:hover{
   color: gray;
 }

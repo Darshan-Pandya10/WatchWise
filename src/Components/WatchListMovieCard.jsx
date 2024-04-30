@@ -29,7 +29,7 @@ const WatchListMovieCard = ({movie}) => {
         }, [watchList])
 
   return (
-    <div className='movie-card bg-white cursor-pointer  relative w-[15rem] h-fit mx-6 my-8 p-0 shadow-lg rounded-lg pb-2'>
+    <div className='movie-card bg-white cursor-pointer  relative w-[15rem] h-fit p-0 shadow-lg rounded-lg pb-2'>
        <img  src={ poster ? `https://image.tmdb.org/t/p/w500/${poster}` : '../src/assets/PosterImage.jpg'}  className='movie-poster border-none rounded-tl-lg rounded-tr-lg object-fill w-full h-full md:min-w-[12rem] md:h-[18rem]'  alt="movie poster" />
         <NavLink to={`/movie/${id}`}>
         <h1 className='font-bold p-2 text-[1.15rem] leading-6 hover:text-[#6366F1]'>{title}</h1>

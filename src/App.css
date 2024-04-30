@@ -33,7 +33,7 @@ body{
 }
 
 .navlink:hover{
-  color: gray;
+  color: rgb(79, 81, 86);
 }
 
 .active:hover{

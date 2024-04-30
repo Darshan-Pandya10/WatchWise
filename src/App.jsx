@@ -61,9 +61,10 @@ const router = createBrowserRouter([
 ])
 
 
+
 function App() {
  
-  const [watchList , setWatchList] = useState(parsedStoredData)
+  const [watchList , setWatchList] = useState(parsedStoredData || [])
 
   return (
     <div className='app'>

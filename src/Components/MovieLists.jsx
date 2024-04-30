@@ -1,9 +1,14 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import MovieCard from './MovieCard'
 import { v4 as uuidv4 } from 'uuid';
+import { WatchListContext } from '../App';
+
 
 
 function MovieLists({resObj}) {
+
+    const {watchList , setWatchList} = useContext(WatchListContext)
+
 
     const listName = resObj.name;
     const result = resObj.response.data.results

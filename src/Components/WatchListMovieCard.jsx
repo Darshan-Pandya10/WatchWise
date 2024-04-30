@@ -15,8 +15,14 @@ const WatchListMovieCard = ({movie}) => {
 
     const removeFromWatchList = (id) => {
         const newWatchList = watchList.filter((movie) => movie.id !== id)
+         if(newWatchList.length === 0) {
+        localStorage.clear()
+        setWatchList([])
+    }
         setWatchList(newWatchList)
     }
+
+   
 
      useEffect(() => { 
             localStorage.setItem('movies' , JSON.stringify(watchList))

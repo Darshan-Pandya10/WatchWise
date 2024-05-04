@@ -22,6 +22,12 @@ function About() {
         <p className="mb-4">Looking for something specific? Our advanced search feature empowers users to refine their movie selection based on release year or name, ensuring you find the perfect film for any occasion.</p>
       </div>
 
+      <div className="mb-8">
+        <h2 className="text-2xl font-bold mb-4">WatchList</h2>
+        <p className="mb-4">  Our watchlist feature is the crown jewel of our platform, meticulously designed to cater to the discerning tastes of film enthusiasts. Whether you're eagerly awaiting the latest releases, revisiting timeless classics, or tracking the careers of your favorite actors and directors, our watchlist empowers you to curate a personalized cinematic journey. </p>
+      </div>
+
+
       <div>
         <h2 className="text-2xl font-bold mb-4">Comprehensive Movie Details</h2>
         <p className="mb-8">With WatchWise, gone are the days of scouring multiple sources for movie information. Gain instant access to comprehensive details about any film you desire, whether you're making your next watchlist or simply satisfying your curiosity.</p>
